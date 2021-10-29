@@ -25,12 +25,12 @@ const obsever = new IntersectionObserver((entries) => {
     });
 }, { rootMargin: '-30% 0px -70% 0px' });
 
-menuLinks.forEach(menuLinks => {
-    menuLinks.addEventListener('click', function () {
+menuLinks.forEach(menuLink => {
+    menuLink.addEventListener('click', function () {
         menu.classList.remove('menu_opened');
     });
     const hash = menuLink.getAttribute('href');
-    document.querySelector(hash);
+    const target = document.querySelector(hash);
     if (target) {
         obsever.observe(target);
     }
