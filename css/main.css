@@ -1,0 +1,33 @@
+:root{
+    
+    /*colors*/
+    --theme-color: #fff;
+    --primary: #4883af;
+    --secondary: #707070;
+    --light: #f0f0f0;
+    --primary-darken: #194566;
+    --bg-dark: #3a4460;
+
+    /*typography*/
+    --text: Arial, Helvetica, sans-serif;
+    --tittle: 'PT Sans Narrow', sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+section[id]{
+    scroll-margin-top: 100px;
+}
+
+body{
+    font-family: var(--text);
+    color: var(--secondary);
+    padding-top: 100px;
+}
+a{
+    text-decoration: none;
+    color: var(--secondary);
+}
+
