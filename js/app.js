@@ -29,7 +29,7 @@ menuLinks.forEach(menuLink => {
     menuLink.addEventListener('click', function () {
         menu.classList.remove('menu_opened');
     });
-    const hash = menuLinks.getAttribute('href');
+    const hash = menuLink.getAttribute('href');
     const target = document.querySelector(hash);
     if (target) {
         obsever.observe(target);
