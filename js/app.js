@@ -38,22 +38,93 @@ menuLinks.forEach(menuLink => {
 
 //control de Form
 
-const $form = document.querySelector('#form');
-$form.addEventListener('submit', handleSubmit);
-async function handleSubmit(event) {
-    event.preventDefault();
-    const form = new FormData(this);
-    const response = await fetch(this.action, {
-        method: this.method,
-        body: form,
-        headers: {
-            'Accept': 'application/json'
+
+// User ID
+// user_id
+// Access Token
+// random_access-token
+
+(function () {
+    // emailjs.init("USERID");
+    const user_id = "user_L7jpp8q2NCZYImd7ApBQM"; //https://dashboard.emailjs.com/admin/integration/browser
+    emailjs.init(user_id);
+})();
+
+/**
+  emailjs.send("SERVICE ID", "TEMPLATE NAME", {
+    to_name: "USERNAME",
+    from_name: "FROM NAME",
+    message: "MESSAGE",
+  });
+ **/
+
+
+function validate() {
+    let loader = document.querySelector(".loader");
+    let name = document.getElementById('name');
+    let email = document.getElementById('email');
+    let phone = document.getElementById('phone');
+    let subject = document.getElementById('subject');
+    let message = document.getElementById('message');
+    let btn = document.querySelector(".submit");
+    const form = document.getElementById('form');
+
+    btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (name.value == "" || email.value == "" || message.value == "") {
+            emptyerror();
+        } else {
+            loader.style.display = "flex";
+            sendmail(subject.value, name.value, email.value, message.value, phone.value);
+            success();
+            loader.style.display = "none";
+            form.reset();
         }
-    })
-    if (response.ok) {
-        this.reset()
-        alert('Gracias por contactarnos, responderemos en breve')
-    }
+    });
+
+}
+validate();
+
+
+function sendmail(subject, name, email, message, phone) {
+
+    const service_id = "service_n7ykf5z"; //https://dashboard.emailjs.com/admin
+    const template_name = "form-contact"; //https://dashboard.emailjs.com/admin/templates
+    const to_name = 'informaciones.meir@gmail.com'; //Correo asociado a EmailJS
+
+    //campos como se indicaron en el template
+    emailjs.send(service_id, template_name, {
+        subject: subject,
+        to_name: to_name,
+        from_name: name,
+        from_email: email,
+        message: message,
+        phone: phone,
+    });
+}
+
+function emptyerror() {
+    Swal.fire({
+        icon: "error",
+        title: "Lo sentimos...",
+        text: "Los campos son requeridos!",
+    });
+}
+
+function error() {
+    Swal.fire({
+        icon: "error",
+        title: "Lo sentimos...",
+        text: "Algo salio mal!",
+    });
+}
+
+function success() {
+    Swal.fire({
+        icon: "success",
+        title: "Muchas gracias...",
+        text: "Su mensaje fue enviado, nos cumunicaremos a la brevedad",
+    });
 }
 
 

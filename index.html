@@ -169,7 +169,7 @@
         <div class="contact-wrapper" id='app'>
             <div class="contact-form">
                 <h3 class="contact-subtitle">Comunicate con nosotros</h3>
-                <form id='form' action="https://formspree.io/f/xeqvbpog" method="POST">
+                <form id='form' method="post">
                     <!-- action="https://formspree.io/f/xeqvbpog" method="POST" -->
                     <p>
                         <label for="name">NOMBRE</label>
@@ -181,10 +181,10 @@
                     </p>
                     <p>
                         <label for="phone">TELEFONO</label>
-                        <input type="tel" id="phone" name="phone">
+                        <input type="text" id="phone" name="phone">
                     </p>
                     <p>
-                        <label for="affair">ASUNTO</label>
+                        <label for="subject">ASUNTO</label>
                         <input type="text" name="subject" id="subject">
                     </p>
                     <p class="block">
@@ -192,34 +192,36 @@
                         <textarea name="message" id="message" rows="3"></textarea>
                     </p>
                     <p class="block">
-                        <button type="submit">ENVIAR</button>
+                        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="submit" ">ENVIAR</button>
                     </p>
                 </form>
             </div>
-            <div class="contact-info">
-                <div class="contact-info-title">
-                    <a href="#"><img height="70px" src="./img/logo-meir.png" alt="logo-meir"></a>
-                    <h3>Nuestros canales de atención</h3>
-                </div>
-                <div class="contact-items">
-                    <ul>
-                        <li><i class="far fa-envelope"></i> info@meir.cl</li>
-                        <li><i class="fas fa-phone-alt"></i> 22 555 55 55</li>
-                        <li><i class="fab fa-whatsapp"></i> +56 9 9999 9999</li>
-                        <li><i class="fas fa-globe"></i> Links de Interes</li>
-                        <div class="links">
-                            <p><a href="https://energia.gob.cl/" target="_blank" aria-label="Ministerio de Energía"
-                                    title="Ministerio de Energía">MinEnergía</a></p>
-                            <p><a href="https://www.coordinador.cl/" target="_blank"
-                                    aria-label="Coordinador Eléctrico Nacional"
-                                    title="Coordinador Eléctrico Nacional">CEN</a></p>
-                            <p><a href="https://www.cne.cl/" target="_blank" aria-label="Comisión Nacional de Energía"
-                                    title="Comisión Nacional de Energía">CNE</a></p>
-                            <p><a href="https://www.panelexpertos.cl/" target="_blank" aria-label="Panel de Expertos"
-                                    title="Panel de Expertos">PanExp</a></p>
-                        </div>
-                    </ul>
-                </div>
+            <div class=" contact-info">
+                            <div class="contact-info-title">
+                                <a href="#"><img height="70px" src="./img/logo-meir.png" alt="logo-meir"></a>
+                                <h3>Nuestros canales de atención</h3>
+                            </div>
+                            <div class="contact-items">
+                                <ul>
+                                    <li><i class="far fa-envelope"></i> info@meir.cl</li>
+                                    <li><i class="fas fa-phone-alt"></i> 22 555 55 55</li>
+                                    <li><i class="fab fa-whatsapp"></i> +56 9 9999 9999</li>
+                                    <li><i class="fas fa-globe"></i> Links de Interes</li>
+                                    <div class="links">
+                                        <p><a href="https://energia.gob.cl/" target="_blank"
+                                                aria-label="Ministerio de Energía"
+                                                title="Ministerio de Energía">MinEnergía</a></p>
+                                        <p><a href="https://www.coordinador.cl/" target="_blank"
+                                                aria-label="Coordinador Eléctrico Nacional"
+                                                title="Coordinador Eléctrico Nacional">CEN</a></p>
+                                        <p><a href="https://www.cne.cl/" target="_blank"
+                                                aria-label="Comisión Nacional de Energía"
+                                                title="Comisión Nacional de Energía">CNE</a></p>
+                                        <p><a href="https://www.panelexpertos.cl/" target="_blank"
+                                                aria-label="Panel de Expertos" title="Panel de Expertos">PanExp</a></p>
+                                    </div>
+                                </ul>
+                            </div>
             </div>
         </div>
     </section>
@@ -242,7 +244,12 @@
             <p>SITIO DESARROLLADO POR <span>meir &#9400;</span> 2021</p>
         </div>
     </footer>
+    <div class="loader">
+        <img src="https://media.giphy.com/media/MEiZ5h8lOkM7rwideE/giphy.gif" alt="" />
+    </div>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>
 
 </html>
